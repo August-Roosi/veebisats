@@ -84,3 +84,18 @@
     background: url(img/icon.png);
     background-size:100% 100%;
   }
+
+
+  /* ------Footer------ */
+.footer {
+    background-color: gray;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .footer div {
+    display: inline-block;
+    padding: 20px;
+  }
+  
+  
