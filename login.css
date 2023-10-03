@@ -1,0 +1,115 @@
+
+:root {
+    font-family: 'Courier Prime', monospace;
+}
+::placeholder{
+    color: gainsboro;
+}
+
+form {
+    border-radius: 4%;
+    width: 25%;
+    background-color: gainsboro;
+    margin: auto;
+    margin-top: 4em;
+}
+
+    input {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 2%;
+    width: 40%;
+    margin: auto;
+    font-family: 'Courier Prime', monospace;
+    font-size: large;
+}
+
+button {
+    background-color: #4b507b;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    margin: auto;
+    color: white;
+    font-family: 'Courier Prime', monospace;
+    font-size: large;
+    padding: 2%;
+    margin-top: 2%;
+
+}
+
+button:hover {
+    background-color: #7177b3;
+}
+
+
+
+.container {
+    padding: 0.5em;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0.2em;
+}
+.text {
+    display: flex;
+    flex-flow: column wrap;
+    margin: auto;
+    padding: 0.4em;
+}
+.text > * {
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.text > *.create_account {
+    margin: 0;
+    padding: 0.5em;
+    padding-top: 1em;
+}
+#bold {
+    font-size: large;
+}
+.forgotten {
+    padding: 0.2em;
+    padding-top: 1em;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(56, 155, 185);
+}
+
+
+
+  
+@media only screen and (max-width: 1200px) {
+
+    form {
+    width: 30%;
+    }
+
+    input {
+    width: 40%;
+    }
+
+    button {
+    width: 40%;
+    }
+}
+  
+@media only screen and (max-width: 1000px) {
+
+    form {
+    width: 60%;
+    }
+
+    input {
+    width: 70%;
+    }
+
+    button {
+    width: 70%;
+    }
+}

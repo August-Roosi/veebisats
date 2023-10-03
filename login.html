@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veebirakendus</title>
+    <!--<link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="main.css" />  
+    <link rel="stylesheet" href="login.css" />  
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+    <div class="page">
+
+    <!-- ------NAV----- -->
+    <div class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="addPost.html">Add Post</a></li>
+      </ul>
+    </div>
+
+    <!-- -----Form---- -->
+    <form  method="post">
+
+        <div class="container">
+            
+            <div class="text">
+                <strong id="bold">Welcome to PostIt</strong>
+                <a class="create_account" href="#">Create an account</a>
+                <p>or</p>
+                <p>Please log in</p>
+            </div>
+
+            <input id="email" type="email" placeholder="Email" name="email" required>
+        
+            <input id="password" type="password" placeholder="Password" name="password" required>
+        
+            <button id="loginbtn" type="submit" >Log in</button>
+            
+
+            <a class="forgotten" href="#">Forget password</a>
+        </div>
+
+
+    </form>
+    </div>
+
+    <script type="text/javascript">
+
+        function isFormEmpty (){
+            return document.getElementsById("email").value.length == 0 && document.getElementsById("password").value.length == 0;
+            
+        }        
+
+        document.getElementById("loginbtn").onclick = function () {
+            if (!isFormEmpty) {
+                location.href = "index.html";
+            }
+            else {
+                console.log(lol);
+            }
+        };
+
+        
+    </script>
+    </body>
+    
+</html>

@@ -1,0 +1,30 @@
+
+/* Navigation menu/navigation bar */
+.nav {
+    background-color: grey;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+  }
+  
+  /* linkide stiil nav baris */
+  .nav a{
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 28.433px 20px 28.433px 20px;
+    text-decoration: none;
+  }
+  
+  .nav li{float: left;
+  }
+  
+  .nav ul{margin-left: auto;
+    margin-top: 0%;
+    list-style: none;
+    margin-bottom: 0%;
+  }
+  .nav ul :hover{
+    background-color: gray;
+    color:  white;
+  }
