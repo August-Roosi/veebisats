@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Veebirakendus</title>
+
+        <link rel="stylesheet" href="main.css" />  
+        <link rel="stylesheet" href="addPost.css" />  
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="page">
+
+            <!-- ------NAV----- -->
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+                <div class="logo">
+                    <a href="index.html"></a>
+                </div>
+            </div>
+
+            <!-- ---POSTcreation--- -->
+            <main  method="post">
+                
+                <div class="container">
+                    
+                    <table>
+
+                        <tr>
+                            <td>
+                                <p>Post</p>
+                                <p>body</p>
+                            </td>
+                            <td>
+                                <textarea id="content" name="content" placeholder="textarea"></textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Select</p>
+                                <p>file</p>
+                            </td>
+                            <td>
+                                <button type="button" class="b">Choose File</button>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <button type="submit" class="a">Create post</button>
+
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
