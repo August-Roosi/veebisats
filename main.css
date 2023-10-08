@@ -16,7 +16,6 @@
   }
 
 
-
 .nav {
     border-radius: 15px;
     background-color: grey;
@@ -40,14 +39,15 @@
     float: left;
   }
   
+  .nav li ~ li{
+    float: right;
+    border-left: 2px solid black;
+  }
+  
   .nav ul{margin-right: auto;
     margin-top: 0%;
     list-style: none;
     margin-bottom: 0%;
-  }
-  .nav ul :hover{
-    background-color: gray;
-    color:  white;
   }
 
   #items:hover{
@@ -101,7 +101,14 @@
   
   .footer div {
     display: flex;
+    flex-direction: column;
     padding: 20px;
   }
-  
-  
+
+  .footer b + i {
+    font-family: 'Comic Sans MS','Comic Sans', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  }
+
+  div b {
+    font-size:large;
+  }
