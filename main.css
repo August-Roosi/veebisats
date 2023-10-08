@@ -1,23 +1,24 @@
+:root {
+  font-family: 'Courier Prime', monospace;
+}
 /* Navigation menu/navigation bar */
 /* Logo link frontpage */
-.logo a{
-    display: block;
-    width: 50px;
-    height: 50px;
-    background: url(img/icon.png);
-    background-size:100% 100%;
-  }
-  
-  /* logo div */
-  .logo{
-    display: block;
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 20px;
+
+/* logo div */
+#logo{    
+  display: flex;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  width: 50px;
+  height: 50px;
   }
 
+
+
 .nav {
+    border-radius: 15px;
     background-color: grey;
     display: flex;
     overflow: hidden;
@@ -27,13 +28,16 @@
   /* linkide stiil nav baris */
   .nav a{
     color: white;
-    display: block;
+    
+    display: flex;
     text-align: center;
     padding: 28.433px 20px 28.433px 20px;
     text-decoration: none;
   }
   
-  .nav li{float: left;
+
+  .nav li{
+    float: left;
   }
   
   .nav ul{margin-right: auto;
@@ -46,45 +50,47 @@
     color:  white;
   }
 
-    /* posts div */
-    .posts{
-        display: block;
-        margin-left: 100px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        margin-right: 100px;
-        background-color: lightgray;
-      }
-
-      .posts h3{
-        display: block;
-        text-align: center;
-        margin: auto;
-        width: 50%;
-        padding: 28.433px 20px 28.433px 20px;
-        text-decoration: none;
-      }
-
-      .postImage {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-      }
-    
-       /* image div */
-  .postlogo{
-    display: block;
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 20px;
-    width: 15px;
-    height: 25px;
-    background: url(img/icon.png);
-    background-size:100% 100%;
+  #items:hover{
+    background-color: rgb(32, 14, 112);
+  }
+/* posts div */
+.posts{      
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 100px;
+    background-color: lightgray;
   }
 
+  .postImage {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+       /* image div */
+
+  .postHeader {   
+    overflow: hidden;
+    align-items: center;
+    text-align: right;
+  }
+  .postLogoImage {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 43px;
+    height: 47px;
+  }
+  .postHeader i{   
+    float: right;
+    position: relative;
+    text-align: right;
+  }
 
   /* ------Footer------ */
 .footer {
@@ -94,7 +100,7 @@
   }
   
   .footer div {
-    display: inline-block;
+    display: flex;
     padding: 20px;
   }
   
