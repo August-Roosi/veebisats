@@ -30,7 +30,7 @@
     </div>
 
     <!-- -----Form---- -->
-    <form  method="post">
+    <form action="index.html" method="get">
 
         <div class="container">
             
@@ -54,25 +54,6 @@
 
     </form>
     </div>
-
-    <script type="text/javascript">
-
-        function isFormEmpty (){
-            return document.getElementsById("email").value.length == 0 && document.getElementsById("password").value.length == 0;
-            
-        }        
-
-        document.getElementById("loginbtn").onclick = function () {
-            if (!isFormEmpty) {
-                location.href = "index.html";
-            }
-            else {
-                console.log(lol);
-            }
-        };
-
-        
-    </script>
     </body>
     
 </html>
