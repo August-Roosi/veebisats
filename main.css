@@ -50,7 +50,7 @@
     margin-bottom: 0%;
   }
 
-  #items:hover{
+  [id^=navItem]:hover{
     background-color: rgb(32, 14, 112);
   }
 /* posts div */
