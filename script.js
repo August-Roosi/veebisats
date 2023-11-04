@@ -1,7 +1,5 @@
 window.onload = function() {
 
-
-
     fetch('https://api.npoint.io/4ae25c0382bbb1bfe1bb')
     
         .then((response) => response.json())
@@ -28,9 +26,7 @@ window.onload = function() {
                 profileBox.className = "postLogoImage"
                 link.className       = ""
                 icon.className       = "postLogoImage"
-
-
-
+                
 
                 console.log(header)
                 header.innerHTML = header.innerHTML + obj.postcreatedate
