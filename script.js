@@ -26,7 +26,7 @@ window.onload = function() {
                 profileBox.className = "postLogoImage"
                 link.className       = ""
                 icon.className       = "postLogoImage"
-                
+
 
                 console.log(header)
                 header.innerHTML = header.innerHTML + obj.postcreatedate
@@ -53,12 +53,18 @@ window.onload = function() {
                 mainBox.appendChild(postBox)
   
             }
-
         }) 
         .catch(err => {
             let box = document.getElementById("mainPost")
             console.log(err)
             box.innerHTML = "error"
         })
+
+        const profilePhoto = document.querySelector("#logo img");
+        const userDropdown = document.querySelector("#userDropdown");
+
+        profilePhoto.addEventListener("click", function () {
+            userDropdown.classList.toggle("show-dropdown");
+        });
 
 }
