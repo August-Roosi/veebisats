@@ -12,16 +12,16 @@ window.onload = function() {
             for (obj of json) {
 
                 /*        <div class="posts">  */
-                let postBox    = document.createElement("div")
                 let header     = document.createElement("div")
+                let postBox    = document.createElement("div")
                 let image      = document.createElement("img")
                 let profileBox = document.createElement("div")
                 let link       = document.createElement("a")
                 let icon       = document.createElement("img")
                 
 
-                postBox.className    = "posts"
                 header.className     = "postHeader"
+                postBox.className    = "posts"
                 image.className      = "postImage"
                 profileBox.className = "postLogoImage"
                 link.className       = ""
@@ -34,7 +34,7 @@ window.onload = function() {
                 icon.src = "data:image/jpeg;charset=utf-8;base64," + obj.userimage
 
 
-                postBox.innerHTML = postBox.innerHTML + obj.posttext
+               
 
                 //"data:image/jpeg;charset=utf-8;base64," - specifies the schematic to convert to image
                 if (obj.postimage != ""){
@@ -47,10 +47,11 @@ window.onload = function() {
 
                 link.appendChild(icon)
                 profileBox.appendChild(link)
-                postBox.appendChild(profileBox)
+                header.appendChild(profileBox)
                 postBox.appendChild(header)
                 postBox.appendChild(image)
                 mainBox.appendChild(postBox)
+                postBox.innerHTML = postBox.innerHTML + obj.posttext
   
             }
         }) 
