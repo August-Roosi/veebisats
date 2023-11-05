@@ -1,6 +1,10 @@
 window.onload = function() {
 
-    fetch('https://api.npoint.io/4ae25c0382bbb1bfe1bb')
+    // For simplicyty, I just changed the way we are fetching the file
+    fetch("./data/posts.json")
+    
+    // Commented out fetching JSON from the web API endpoint
+    //fetch('https://api.npoint.io/4ae25c0382bbb1bfe1bb')
     
         .then((response) => response.json())
         .then((json) => {
