@@ -10,9 +10,6 @@ window.onload = function() {
         .then((json) => {
             console.log(json)
             let mainBox = document.getElementById("mainPage")
-            mainBox.style.display = "flex, column"
-            mainBox.style.gap = "20px"  
-            mainBox.style.margin = "auto"
             for (obj of json) {
 
                 /*        <div class="posts">  */
@@ -21,8 +18,7 @@ window.onload = function() {
                 let image      = document.createElement("img")
                 let profileBox = document.createElement("div")
                 let link       = document.createElement("a")
-                let icon       = document.createElement("img")
-                
+                let icon       = document.createElement("img")                
 
                 header.className     = "postHeader"
                 postBox.className    = "posts"
@@ -45,9 +41,6 @@ window.onload = function() {
                     image.src = "data:image/jpeg;charset=utf-8;base64," + obj.postimage 
                 }
                 
-
-                icon.width = "40"
-                image.width = "400"
 
                 link.appendChild(icon)
                 profileBox.appendChild(link)
