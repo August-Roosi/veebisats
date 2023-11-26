@@ -21,25 +21,28 @@ export default createStore({
            },
     mutations: {
         //The .forEach() method executes a callback function on each of the elements in an array in order. – Lecture 5
-             Increaselikes: state => {
-                 state.postList.forEach(
-                    //TODO
-                    
-                 )
+             Increaselikes: (state, postId) => {
+                console.log(state)
+                console.log(postId)
+
+                const post = state.postList.find(post => post.id === postId)
+                if (post) {
+                    post.likecount++
+                }
              },
              Resetlikes: state => {
-                 state.postList.forEach(
-                     //TODO
-                 )
+                state.postList.forEach(post => {
+                    post.likecount = 0
+                })
              }
          },
     actions: {
-        IncreaselikesAct: act => {
+        IncreaseLikesAct: (act, postId) => {
             setTimeout(function() {
-                act.commit("Increaselikes")
+                act.commit("Increaselikes", postId)
             }, 1000)
         },
-        ResetlikesAct: act => {
+        ResetLikesAct: act => {
             setTimeout(function() {
                 act.commit("Resetlikes")
             }, 1000)
