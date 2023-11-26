@@ -1,10 +1,22 @@
 <template>
+  <div class="header">
   <h1>Our Webpage Header Nav</h1>
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/signUp">SignUp</router-link> 
   </nav>
+  </div>
   <router-view/>
+  <div class="footer">
+   <h1>Our Webpage footer</h1>
+   <p>
+    Team T: 
+    August Roosi,
+    Kaisa Kumpas,
+    Siim Neljandik
+    Homework repo: https://github.com/August-Roosi/veebisats
+    </p>
+</div>
 </template>
 
 <style>
@@ -28,4 +40,14 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.footer {
+    background-color: lightgray;
+      text-align: center;
+  }
+
+.header {
+    background-color: lightgray;
+      text-align: center;
+  }
 </style>
