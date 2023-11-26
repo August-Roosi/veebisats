@@ -2,14 +2,16 @@
   <div id="mainPage">
     <div class="posts" v-for="post in postList" :key="post.id">
       <div class="postHeader">
-        <div class="postLogoImage">
+        <div class="postLogoImage" v-if="post.userimage">
           <a>
             <img :src="post.userimage" alt="Profile Pic" class="postLogoImage" />
           </a>
         </div>
         {{ post.postcreatedate }}
       </div>
-      <img :src="post.postimage" alt="Post 1 image" class="postImage" />
+      <div v-if="post.postimage">
+        <img :src="post.postimage" alt="Post 1 image" class="postImage" />
+      </div>
       {{ post.posttext }}
       <div class="likeSection">
         <button v-on:click="Increaselikes(post.id)" class="likeButton">       
