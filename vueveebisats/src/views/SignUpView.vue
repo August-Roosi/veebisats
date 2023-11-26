@@ -1,24 +1,15 @@
 <!-- SignUpView.vue -->
 <template>
-    <header>
-      <nav>
-        <router-link to="/">Home</router-link>
-        <router-link to="/login">Login</router-link>
-      </nav>
-    </header>
-
+    
     <div class="content">
       <h1>Sign Up</h1>
       <SignUpComponents />
     </div>
 
-    <footer>
-      <p>&copy; 2023 Your App Name. All rights reserved.</p>
-    </footer>
   </template>
   
   <script>
-  import SignUpComponents from "@/components/SignUpComponents.vue";
+  import SignUpComponents from "@/components/SignUpComponent.vue";
   
   export default {
     components: {
