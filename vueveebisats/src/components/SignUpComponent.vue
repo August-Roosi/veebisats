@@ -25,7 +25,7 @@
   </template>
   
   <script>
-  import PasswordValidator from "@/utils/PasswordValidator.js";
+  //import PasswordValidator from "@/utils/PasswordValidator.js";
   
   export default {
     data() {
@@ -37,7 +37,7 @@
       };
     },
     methods: {
-      validatePassword() {
+      /**validatePassword() {
         const isValid = PasswordValidator.validate(this.password);
         this.passwordValidationMessage = isValid
           ? ""
@@ -49,6 +49,8 @@
         // If the password is not valid, do not proceed with the registration
             return;
         }
+**/
+      async submitForm() {
 
         // Assuming you have a Vuex store module named 'user'
         try {
