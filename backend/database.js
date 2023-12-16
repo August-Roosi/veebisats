@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   user: "postgres",
-  password: "Kommikarp3",
+  password: "parool",
   database: "veebiRakendused",
   host: "localhost",
   port: "5432"
@@ -33,11 +33,11 @@ const createPostsTableQuery = `
     posttext TEXT NOT NULL,
     postcreatedate TIMESTAMPTZ DEFAULT current_timestamp,
     posttime TIMESTAMPTZ DEFAULT current_timestamp,
-    tags JSONB NOT NULL,
+    tags JSONB,
     likecount INTEGER,
     comments JSONB,
     userid uuid REFERENCES "users" (userid),
-    postimage VARCHAR(200) -- Assuming it stores a link to an image
+    postimage VARCHAR(200) 
   );
 `;
 

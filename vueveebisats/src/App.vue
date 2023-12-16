@@ -93,7 +93,7 @@ export default {
         const samplePostData = {
           posttext: "Lorem ipsum dolor sit amet",
           likecount: 0,
-          tags: ["tag1", "tag2"],
+          tags: {"tag1": "oobagooba"},
           userid: randomUser.userid,
         };
 
