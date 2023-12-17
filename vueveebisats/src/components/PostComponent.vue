@@ -1,5 +1,5 @@
 <template>
-  <div id="mainPage">
+  <div id="mainPage" :key="componentKey">
     <router-link to="/login">Log Out</router-link>
     <br>
     <router-link to="/addpost">Add Post</router-link>
@@ -7,7 +7,7 @@
      <button @click="delAllPosts">Delete All Posts</button>
     <br>
     
-    <div class="posts" v-for="post in posts" :key="post.postid">
+    <div class="posts" v-for="post in posts" :key="post.postid" @click="clickMethod(post.postid)">
       <div class="postHeader">
         <div class="postLogoImage" v-if="post.userimage">
           <a>
@@ -20,12 +20,13 @@
         <img :src="post.postimage" alt="Post 1 image" class="postImage" />
       </div>
       {{ post.posttext }}
-      <div class="likeSection">
+      <!-- likes aren't in use
+        <div class="likeSection">
         <button v-on:click="Increaselikes(post.id)" class="likeButton">       
                <img src="../assets/like.png"  class="likeIcon" >
         </button>
         <span class="likeCount">{{ post.likecount }} likes</span>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -35,6 +36,7 @@ export default {
   name: "PostComponent",
   data() {
     return {
+      componentKey: 0,
       users: [],
       posts: [],};
   },
@@ -46,6 +48,9 @@ export default {
     },
   },
   methods: {
+    clickMethod(selPostID) {
+      this.$router.push('/post/'+selPostID);
+    },
     async getAllPosts() {
       try {
         const posts = await this.getData("http://localhost:8000/api/posts");
@@ -63,7 +68,8 @@ export default {
       } catch (error) {
         console.error(error);
       }
-    },
+      location.reload()
+          },
  
   async getData(url) {
       try {
