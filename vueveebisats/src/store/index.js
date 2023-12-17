@@ -58,7 +58,7 @@ export default createStore({
         },
         async login({commit}, credentials){
             try{
-                const response = await axios.post(`${API_BASE_URL}/login`, credentials);
+                const response = await axios.post(`${API_BASE_URL}`, credentials);
                 if (response.data.token){
                     commit('setUser', response.data.user);
                     localStorage.setItem('token', response.data.token);
@@ -69,7 +69,7 @@ export default createStore({
         },
         async register({commit}, userData){
             try{
-                const response = await axios.post(`${API_BASE_URL}/signup`, userData);
+                const response = await axios.post(`${API_BASE_URL}`, userData);
                 if (response.data.token){
                     commit('setUser', response.data.user);
                     localStorage.setItem('token', response.data.token);
