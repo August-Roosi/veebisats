@@ -1,4 +1,7 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
+
+const API_BASE_URL = 'http://localhost:8000/api/users';
 
 export default createStore({
     strict: true,
@@ -18,7 +21,10 @@ export default createStore({
                  });
                  return postLists
              },
-           },
+          isAuthenticated(state){
+             return !!state.user;
+          },
+    },
     mutations: {
         //The .forEach() method executes a callback function on each of the elements in an array in order. – Lecture 5
              Increaselikes: (state, postId) => {
@@ -34,6 +40,9 @@ export default createStore({
                 state.postList.forEach(post => {
                     post.likecount = 0
                 })
+             },
+             setUser(state, user){
+                 state.user = user;
              }
          },
     actions: {
@@ -46,10 +55,33 @@ export default createStore({
             setTimeout(function() {
                 act.commit("Resetlikes")
             }, 1000)
-        }
+        },
+        async login({commit}, credentials){
+            try{
+                const response = await axios.post(`${API_BASE_URL}/login`, credentials);
+                if (response.data.token){
+                    commit('setUser', response.data.user);
+                    localStorage.setItem('token', response.data.token);
+                }
+            }catch (error){
+                throw new Error('Login failed. Invalid credentials');
+            }
+        },
+        async register({commit}, userData){
+            try{
+                const response = await axios.post(`${API_BASE_URL}/signup`, userData);
+                if (response.data.token){
+                    commit('setUser', response.data.user);
+                    localStorage.setItem('token', response.data.token);
+                }
+            }catch (error){
+                throw new Error('Registration failed. Please try again');
+            }
+        },
     },
 
     state: {
+        user: null,
         // I put the states into the end as this WILL get long
         postList:[
             {

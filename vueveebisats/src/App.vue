@@ -4,6 +4,7 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/signUp">SignUp</router-link>
+      <router-link to="/login">LogIn</router-link>
       <button @click="insertDefaultData">Insert Default Data</button>
       <button @click="getAndDisplayUsers">Get Users</button>
       <button @click="getAllPosts">Display All Posts</button>
