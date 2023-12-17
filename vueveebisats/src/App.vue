@@ -2,7 +2,7 @@
   <div class="header">
     <h1>Our Webpage Header Nav</h1>
     <nav>
-      <router-link to="/">Home</router-link> | 
+      <router-link to="/" v-if=isAuthenticated>Home | </router-link>
       <router-link to="/signUp">Sign Up</router-link> | 
       <router-link to="/login">Log In</router-link> | 
       <router-link to="/about">About Us</router-link>
@@ -43,9 +43,20 @@
 export default {
   data() {
     return {
+      //we can check if it is authenticated and dynamically hide the option
+      isAuthenticated: true,
       users: [],
       posts: [],
     };
+  },
+  computed:
+  
+  {
+    /** Here we could get if the user is authenticated from the store.
+      *isAuthenticated() {
+      *return this.$store.getters.isAuthenticated;
+      *},
+    */
   },
   methods: {
     async insertDefaultData() {
