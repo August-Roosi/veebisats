@@ -2,11 +2,12 @@
 <template>
     <div id="signUpPage">
       <form @submit.prevent="submitForm">
+        <h2>Sign Up</h2>
         <label for="username">Username:</label>
-        <input type="text" id="username" v-model="username" />
+        <input type="text" id="username" v-model="username" required />
   
         <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" />
+        <input type="email" id="email" v-model="email" required />
   
         <label for="password">Password:</label>
         <input
@@ -14,6 +15,7 @@
           id="password"
           v-model="password"
           @input="validatePassword"
+          required
         />
         <p v-if="passwordValidationMessage" class="validation-message">
           {{ passwordValidationMessage }}
@@ -25,7 +27,8 @@
   </template>
   
   <script>
-  //import PasswordValidator from "@/utils/PasswordValidator.js";
+  import PasswordValidator from "@/PasswordValidator.js";
+  import {useRouter} from "vue-router";
   
   export default {
     data() {
@@ -37,7 +40,7 @@
       };
     },
     methods: {
-      /**validatePassword() {
+      validatePassword() {
         const isValid = PasswordValidator.validate(this.password);
         this.passwordValidationMessage = isValid
           ? ""
@@ -49,8 +52,6 @@
         // If the password is not valid, do not proceed with the registration
             return;
         }
-**/
-      async submitForm() {
 
         // Assuming you have a Vuex store module named 'user'
         try {
@@ -62,7 +63,8 @@
             });
 
             // Optionally, you can redirect the user to another page upon successful registration
-            this.$router.push("/login");
+            const router = useRouter();
+            await router.push('/login');
         } catch (error) {
             // Handle registration error (e.g., display an error message)
             console.error("Registration error:", error.message);

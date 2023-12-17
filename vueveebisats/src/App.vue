@@ -2,8 +2,11 @@
   <div class="header">
     <h1>Our Webpage Header Nav</h1>
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/signUp">SignUp</router-link>
+      <router-link to="/">Home</router-link> | 
+      <router-link to="/signUp">Sign Up</router-link> | 
+      <router-link to="/login">Log In</router-link> | 
+      <router-link to="/about">About Us</router-link>
+      <br>
       <button @click="insertDefaultData">Insert Default Data</button>
       <button @click="getAndDisplayUsers">Get Users</button>
       <button @click="getAllPosts">Display All Posts</button>
