@@ -1,8 +1,9 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const pool = new Pool({
   user: "postgres",
-  password: "parool",
+  password: "Kommikarp3",
   database: "veebiRakendused",
   host: "localhost",
   port: "5432"
@@ -23,6 +24,7 @@ const createUserTableQuery = `
   CREATE TABLE IF NOT EXISTS "users" (
     userid uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     username VARCHAR(200) NOT NULL,
+    userpassword VARCHAR(200) NOT NULL,
     userimage VARCHAR(200)
   );
 `;
@@ -52,4 +54,3 @@ const createTables = async () => {
 
 createTables();
 
-module.exports = pool;

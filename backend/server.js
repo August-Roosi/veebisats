@@ -1,8 +1,6 @@
 const express = require('express');
-const cors = require('cors');
-const path = require('path');
+const cors = require('cors'); 
 const { Pool } = require('pg');
-
 const port = process.env.PORT || 8000;
 const app = express();
 
@@ -17,6 +15,7 @@ const pool = new Pool({
 app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.json());
 app.options('/api/upload', cors());
+
 
 // CREATE - Insert a new post
 app.post('/api/posts', async (req, res) => {
@@ -91,8 +90,8 @@ app.post('/api/users', async (req, res) => {
     console.log("A user registration request has arrived");
     const user = req.body;
     const newUser = await pool.query(
-      "INSERT INTO users(username, userimage) VALUES ($1, $2) RETURNING *",
-      [user.username, user.userimage]
+      "INSERT INTO users(username, userpassword, userimage) VALUES ($1, $2, $3) RETURNING *",
+      [user.username, user.userpassword, user.userimage]
     );
     res.json(newUser.rows[0]); 
   } catch (err) {

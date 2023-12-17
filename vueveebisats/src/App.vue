@@ -21,7 +21,7 @@
       <h2>Users:</h2>
       <ul>
         <li v-for="user in users" :key="user.userid">
-          {{ user.username }} - {{ user.userimage }}
+          {{ user.username }} - {{ user.userpassword }}
         </li>
       </ul>
     </div>
@@ -50,11 +50,13 @@ export default {
         const sampleUserData1 = {
           username: "User1",
           userimage: "https://example.com/user1-image.jpg",
+          userpassword: "password1",
         };
 
         const sampleUserData2 = {
           username: "User2",
           userimage: "https://example.com/user2-image.jpg",
+          userpassword: "password2",
         };
 
         await this.sendData("http://localhost:8000/api/users", sampleUserData1);
@@ -68,6 +70,7 @@ export default {
       try {
         const users = await this.getData("http://localhost:8000/api/users");
         this.users = users;
+        console.log(users);
       } catch (error) {
         console.error(error);
       }
