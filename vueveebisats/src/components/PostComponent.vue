@@ -1,6 +1,13 @@
 <template>
   <div id="mainPage">
-    <div class="posts" v-for="post in postList" :key="post.id">
+    <router-link to="/login">Log Out</router-link>
+    <br>
+    <router-link to="/addpost">Add Post</router-link>
+    <br>
+     <button @click="delAllPosts">Delete All Posts</button>
+    <br>
+    
+    <div class="posts" v-for="post in posts" :key="post.postid">
       <div class="postHeader">
         <div class="postLogoImage" v-if="post.userimage">
           <a>
@@ -27,18 +34,76 @@
 export default {
   name: "PostComponent",
   data() {
-    return {};
+    return {
+      users: [],
+      posts: [],};
   },
-  computed: {
+  computed:
+  
+  {
     postList() {
       return this.$store.state.postList;
     },
   },
   methods: {
+    async getAllPosts() {
+      try {
+        const posts = await this.getData("http://localhost:8000/api/posts");
+        this.posts = posts;
+      } catch (error) {
+        console.error(error);
+      }
+    },
     Increaselikes(postId) {
       this.$store.dispatch("IncreaseLikesAct", postId);
     },
+    async delAllPosts() {
+      try {
+        await this.delData("http://localhost:8000/api/posts");
+      } catch (error) {
+        console.error(error);
+      }
+    },
+ 
+  async getData(url) {
+      try {
+        const response = await fetch(url, {
+          method: "GET",
+          headers: {},
+        });
+        if (response.ok) {
+          const result = await response.json();
+          console.log(result.message);
+          return result; 
+        } else {
+          console.error(`Failed to fetch data`);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }, 
+    async delData(url, data) {
+      try {
+        const response = await fetch(url, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log(result.message);
+        } 
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
+  beforeMount() {
+    this.getAllPosts()
+},
 };
 </script>
 

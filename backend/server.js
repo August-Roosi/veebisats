@@ -8,7 +8,7 @@ const app = express();
 
 const pool = new Pool({
   user: "postgres",
-  password: "Kommikarp3",
+  password: "parool",
   database: "veebiRakendused",
   host: "localhost",
   port: "5432"
@@ -84,6 +84,17 @@ app.delete('/api/posts/:id', async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+app.delete('/api/posts/', async (req, res) => {
+  try {
+    await pool.query("DELETE FROM posts");
+    res.json({ message: "Posts deleted successfully" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 
 // CREATE - Insert a new user
 app.post('/api/users', async (req, res) => {
