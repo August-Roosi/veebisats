@@ -2,11 +2,11 @@
 <template>
     <div id="addPostPage">
       <form @submit.prevent="updatePost">
-        <h2>post</h2>
-        <label for="body">Body:</label>
-        <input type="text" id="body" v-model="body" required />
- 
+        <h2>Update/Delete Post</h2>
+        <label for="body">Update post text:</label>
+        <input type="text" id="body" v-model="body" required /> 
         <button type="submit">Update</button>
+
         <button @click="delPost">Delete Post</button>
       </form>
     </div>
@@ -17,16 +17,13 @@
   export default {
     data() {
       return {
-      id: this.$route.params.id ,
-        username: "",
-        email: "",
-        password: "",
-        passwordValidationMessage: "",
-         body:"",
+        //The post ID is provided via the URL parameter
+        id: this.$route.params.id ,
+        body:"",
       };
     },
     methods: {
-
+//Updates post, gets the ID from the URL and text from the textbox
     async updatePost() {
       try {
         const samplePostData = {
@@ -40,6 +37,7 @@
         console.error(error);
       }
     }, 
+//Deletes post, gets the ID from the URL
     async delPost() {
         try {
         await this.delData("http://localhost:8000/api/posts/"+this.id);
@@ -48,6 +46,8 @@
         console.error(error);
       }
           },
+          
+//Sends a DELETE request for... well... deleting
           async delData(url, data) {
       try {
         const response = await fetch(url, {
@@ -69,6 +69,7 @@
       }
     },
 
+//Sends a PUT request for updating
     async putData(url, data) {
       try {
         const response = await fetch(url, {

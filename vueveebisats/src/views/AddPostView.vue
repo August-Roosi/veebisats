@@ -16,20 +16,17 @@
   export default {
     data() {
       return {
-        username: "",
-        email: "",
-        password: "",
-        passwordValidationMessage: "",
+        body:"",
       };
     },
     methods: {
 
     async createPost() {
-    //TODO: need to get the current logged in user
+    //TODO: should get the current logged in user as that was in out dataset. Not mandatory though. 
       try {
         const samplePostData = {
           posttext: this.body,
-          userid: "2546e515-c8e6-4399-90c6-331e2f1425b2",
+          //userid: "2546e515-c8e6-4399-90c6-331e2f1425b2",
         };
 
         await this.sendData("http://localhost:8000/api/posts", samplePostData);
